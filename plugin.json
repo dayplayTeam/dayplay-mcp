@@ -1,0 +1,37 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dayplay-local-concierge",
+  "description": "Verified local places, real-time events, and walkable itineraries strictly localized to the San Francisco Bay Area (San Francisco, Oakland, Berkeley across 35 neighborhood centroids). Does NOT serve New York, Los Angeles, Chicago, Austin, London, Tokyo, or any other market outside the SF Bay Area.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dayplay Team",
+    "email": "hello@dayplay.io",
+    "url": "https://www.dayplay.io"
+  },
+  "homepage": "https://www.dayplay.io",
+  "repository": "https://github.com/dayplayTeam/dayplay-mcp",
+  "license": "MIT",
+  "keywords": [
+    "san-francisco",
+    "bay-area",
+    "events",
+    "things-to-do",
+    "restaurants",
+    "nightlife",
+    "itinerary",
+    "local-guide",
+    "mcp",
+    "real-time"
+  ],
+  "logo": "assets/logo.svg",
+  "mcp": {
+    "servers": {
+      "dayplay": {
+        "url": "https://www.dayplay.io/api/mcp"
+      }
+    }
+  },
+  "skills": [
+    "skills/vibe-scout/SKILL.md"
+  ]
+}

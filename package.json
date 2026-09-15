@@ -1,0 +1,60 @@
+{
+  "name": "@dayplay/mcp-server",
+  "version": "1.0.0",
+  "description": "Dayplay Local Concierge & Vibe Scout MCP server - strictly localized to the San Francisco Bay Area (San Francisco, Oakland, Berkeley across 35 neighborhood centroids). Out-of-market locations are not served.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "dayplay",
+    "sf",
+    "san-francisco",
+    "bay-area",
+    "travel",
+    "nightlife",
+    "itinerary",
+    "events",
+    "anti-drift"
+  ],
+  "license": "MIT",
+  "author": "Dayplay Team (https://www.dayplay.io)",
+  "type": "module",
+  "bin": {
+    "dayplay-mcp": "bin/dayplay-mcp.js"
+  },
+  "main": "bin/dayplay-mcp.js",
+  "exports": {
+    ".": "./bin/dayplay-mcp.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "smithery.yaml",
+    "plugin.json",
+    ".cursor/",
+    ".cursor-plugin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node bin/dayplay-mcp.js",
+    "smoke": "node bin/dayplay-mcp.js --smoke",
+    "test": "node test/e2e.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dayplayTeam/dayplay-mcp.git"
+  },
+  "homepage": "https://www.dayplay.io",
+  "bugs": {
+    "url": "https://github.com/dayplayTeam/dayplay-mcp/issues"
+  }
+}

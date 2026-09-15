@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dayplay-local-concierge",
+  "description": "San Francisco Bay Area only (San Francisco, Oakland, Berkeley across 35 neighborhood centroids): verified events tonight, places open now, and walkable itineraries by neighborhood. Out-of-market locations are not served - not available outside the San Francisco Bay Area.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dayplay Team",
+    "email": "hello@dayplay.io"
+  },
+  "homepage": "https://www.dayplay.io",
+  "repository": "https://github.com/dayplayTeam/dayplay-mcp",
+  "license": "MIT",
+  "keywords": [
+    "san-francisco",
+    "bay-area",
+    "events",
+    "things-to-do",
+    "restaurants",
+    "nightlife",
+    "itinerary",
+    "local-guide",
+    "mcp",
+    "real-time"
+  ],
+  "logo": "assets/logo.svg"
+}

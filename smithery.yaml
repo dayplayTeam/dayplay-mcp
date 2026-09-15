@@ -1,0 +1,63 @@
+name: dayplay
+displayName: Dayplay Local Concierge & Vibe Scout
+description: >-
+  STRICTLY SAN FRANCISCO BAY AREA ONLY - San Francisco, Oakland, and Berkeley
+  across 35 neighborhood centroids. Local concierge and vibe scout for curated
+  places, verified real-time events, and walkable itineraries, strictly bound by
+  neighborhood, date, and category. NOT AVAILABLE in New York, Los Angeles,
+  Chicago, Austin, Seattle, Miami, London, Tokyo, or any other city, region, or
+  country - out-of-market locations are not served. Out of market, the server and
+  every tool state "Dayplay is strictly SF Bay Area only" and decline to
+  fabricate places or events. Every result is spatially verified under the
+  Dayplay Anti-Drift Guarantee: zero cross-bay drift.
+version: 1.0.0
+license: MIT
+homepage: https://www.dayplay.io
+repository: https://github.com/dayplayTeam/dayplay-mcp
+tags:
+  - sf
+  - san-francisco
+  - bay-area
+  - travel
+  - nightlife
+  - itinerary
+  - events
+  - anti-drift
+  - mcp
+categories:
+  - travel
+  - local-search
+  - events
+  - lifestyle
+examples:
+  - "What's happening in the Mission tonight?"
+  - "Find a place open right now in North Beach with a 4.5+ rating."
+  - "Build me a Saturday itinerary that never leaves Bernal Heights."
+  - "Which Berkeley events are on this weekend?"
+  - "What's on in Austin tonight? (out of market - Dayplay is strictly SF Bay Area only, so no results are returned)"
+startCommand:
+  type: http
+  url: https://www.dayplay.io/api/mcp
+  configSchema:
+    type: object
+    properties: {}
+    required: []
+tools:
+  - name: get_places
+    description: >-
+      Query curated places filtered by neighborhood, open-now status, ratings, or
+      newly opened window. SCOPE: San Francisco Bay Area only (San Francisco,
+      Oakland, Berkeley, 35 neighborhood centroids). Out-of-market locations
+      (e.g. Austin, New York, Tokyo) are declined - never fabricate venues.
+  - name: get_events
+    description: >-
+      Query verified, real-time event occurrences strictly filtered by date,
+      neighborhood, and category. SCOPE: San Francisco Bay Area only (San
+      Francisco, Oakland, Berkeley, 35 neighborhood centroids). Out-of-market
+      locations are declined - never fabricate events.
+  - name: get_neighborhoods
+    description: >-
+      Returns the complete and exclusive list of 35 San Francisco Bay Area
+      neighborhood centroids (San Francisco, Oakland, Berkeley only) with
+      coordinates and radii. No other market is covered. Use to strictly bind
+      itineraries to a specific neighborhood and to detect out-of-market queries.
