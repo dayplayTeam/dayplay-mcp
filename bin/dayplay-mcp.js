@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * @dayplay/mcp-server — Dayplay Local Concierge & Vibe Scout
+ * @dayplayai/mcp-server — Dayplay Local Concierge & Vibe Scout
  *
  * Zero-configuration stdio MCP proxy that bridges any stdio-only MCP client
  * (Cursor, Claude Desktop, Grok, Cline, etc.) to the hosted Dayplay remote
  * Streamable HTTP MCP endpoint.
  *
- *   npx -y @dayplay/mcp-server
+ *   npx -y @dayplayai/mcp-server
  *
  * All tool surface, schemas, and results are served by the remote endpoint, so
  * this package never needs updating when Dayplay ships new tools.

@@ -10,7 +10,7 @@ description: >-
   every tool state "Dayplay is strictly SF Bay Area only" and decline to
   fabricate places or events. Every result is spatially verified under the
   Dayplay Anti-Drift Guarantee: zero cross-bay drift.
-version: 1.0.0
+version: 1.2.0
 license: MIT
 homepage: https://www.dayplay.io
 repository: https://github.com/dayplayTeam/dayplay-mcp

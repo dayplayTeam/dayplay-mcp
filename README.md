@@ -1,6 +1,6 @@
 # Dayplay — Local Concierge & Vibe Scout MCP
 
-**`@dayplay/mcp-server`** · v1.0.0 · MIT
+**`@dayplayai/mcp-server`** · v1.0.0 · MIT
 
 A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge for the **San Francisco Bay Area only** — curated places, verified real-time events, and neighborhood binding that eliminates cross-bay drift.
 
@@ -33,7 +33,7 @@ A zero-configuration MCP server that gives any AI agent a *locally grounded* con
   "mcpServers": {
     "dayplay": {
       "command": "npx",
-      "args": ["-y", "@dayplay/mcp-server"]
+      "args": ["-y", "@dayplayai/mcp-server"]
     }
   }
 }
@@ -51,7 +51,7 @@ Edit `claude_desktop_config.json`:
   "mcpServers": {
     "dayplay": {
       "command": "npx",
-      "args": ["-y", "@dayplay/mcp-server"]
+      "args": ["-y", "@dayplayai/mcp-server"]
     }
   }
 }
@@ -74,7 +74,7 @@ Or bridge it over stdio in Grok's MCP config:
   "mcpServers": {
     "dayplay": {
       "command": "npx",
-      "args": ["-y", "@dayplay/mcp-server"]
+      "args": ["-y", "@dayplayai/mcp-server"]
     }
   }
 }
@@ -85,7 +85,7 @@ Pair it with the [`vibe-scout` skill](skills/vibe-scout/SKILL.md) for prompt-lev
 ### Terminal smoke test
 
 ```bash
-npx -y @dayplay/mcp-server --smoke
+npx -y @dayplayai/mcp-server --smoke
 ```
 
 Prints the live endpoint and available tool names. Exits non-zero on failure.
@@ -189,14 +189,14 @@ dayplay-mcp/
 │   └── vibe-scout/
 │       └── SKILL.md          # Grok Bot & Cursor Agent prompt instructions
 ├── bin/
-│   └── dayplay-mcp.js        # Executable proxy for `npx -y @dayplay/mcp-server`
+│   └── dayplay-mcp.js        # Executable proxy for `npx -y @dayplayai/mcp-server`
 ├── assets/
 │   └── logo.svg
 ├── test/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplay/mcp-server v1.0.0, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v1.0.0, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```
