@@ -1,16 +1,15 @@
 name: dayplay
-displayName: Dayplay Local Concierge & Vibe Scout
+displayName: DayPlay — SF Bay Area Local Concierge for AI Agents
 description: >-
-  STRICTLY SAN FRANCISCO BAY AREA ONLY - San Francisco, Oakland, and Berkeley
-  across 35 neighborhood centroids. Local concierge and vibe scout for curated
-  places, verified real-time events, and walkable itineraries, strictly bound by
-  neighborhood, date, and category. NOT AVAILABLE in New York, Los Angeles,
-  Chicago, Austin, Seattle, Miami, London, Tokyo, or any other city, region, or
-  country - out-of-market locations are not served. Out of market, the server and
-  every tool state "Dayplay is strictly SF Bay Area only" and decline to
-  fabricate places or events. Every result is spatially verified under the
-  Dayplay Anti-Drift Guarantee: zero cross-bay drift.
-version: 1.2.1
+  Verified real-time places, events & walkable itineraries for AI agents.
+  Geo-locked to San Francisco, Oakland & Berkeley (35 neighborhood centroids).
+  3 free discovery tools; a free account unlocks plan_outing — full multi-stop
+  evening plans with walk times, saved to the user's DayPlay account — plus
+  saved plans and sellout/closure/weather alerts. Honest zero-results protocol:
+  agents never fabricate venues, events, dates, or hours (Anti-Drift Guarantee).
+  One remote URL, no API key. NOT AVAILABLE outside the SF Bay Area — out-of-market
+  requests are refused by protocol, never invented.
+version: 1.3.0
 license: MIT
 homepage: https://www.dayplay.io
 repository: https://github.com/dayplayTeam/dayplay-mcp

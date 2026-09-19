@@ -1,4 +1,4 @@
-# Dayplay — Local Concierge & Vibe Scout MCP
+# DayPlay — Verified Local Concierge MCP for AI Agents
 
 **`@dayplayai/mcp-server`** · v1.2.1 · MIT
 
