@@ -213,6 +213,31 @@ node test/e2e.mjs                 # end-to-end stdio smoke (tools + 3 tool calls
 
 ---
 
+## Releasing (maintainers)
+
+Publishing is fully automated via **npm Trusted Publishing (OIDC)** — no `NPM_TOKEN`, no 2FA prompts. The `.github/workflows/publish.yml` workflow is bound in the package's npm settings to this exact repo + workflow.
+
+```bash
+npm version patch        # or minor / major — bumps package.json, creates the vX.Y.Z tag
+git push --follow-tags
+```
+
+CI then: verifies `package.json` version matches the tag → `npm ci` → smoke test → `npm publish --provenance` (sigstore-signed, OIDC-attested).
+
+**Gotcha:** `--follow-tags` doesn't always push the tag. If no workflow run appears under *Actions* within a minute, finish with:
+
+```bash
+git push origin v1.X.Y
+```
+
+Notes:
+
+- The registry shows *"package is being processed"* for ~3 minutes after publish before the new version resolves — don't panic-verify too early.
+- npm's OIDC flow requires **npm ≥ 11.5.1** in CI; the workflow installs `npm@latest` for this reason.
+- If the workflow ever gains an `environment:` block, the npm Trusted Publisher binding must be updated to the same environment name, or publishes will be rejected.
+
+---
+
 ## License
 
 MIT © Dayplay Team — https://www.dayplay.io
