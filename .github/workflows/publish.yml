@@ -36,7 +36,10 @@ jobs:
             exit 1
           fi
 
-      - name: Install and smoke test
+      - name: Install npm with OIDC trusted-publishing support
+        run: npm install -g npm@latest
+
+      - name: Install deps and smoke test
         run: |
           npm ci --no-fund --no-audit
           npm run smoke

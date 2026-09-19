@@ -1,6 +1,6 @@
 {
   "name": "@dayplayai/mcp-server",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Dayplay Local Concierge & Vibe Scout MCP server - strictly localized to the San Francisco Bay Area (San Francisco, Oakland, Berkeley across 35 neighborhood centroids). Out-of-market locations are not served.",
   "keywords": [
     "mcp",

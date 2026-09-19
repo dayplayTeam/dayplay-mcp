@@ -1,6 +1,6 @@
 # Dayplay — Local Concierge & Vibe Scout MCP
 
-**`@dayplayai/mcp-server`** · v1.0.0 · MIT
+**`@dayplayai/mcp-server`** · v1.2.1 · MIT
 
 A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge for the **San Francisco Bay Area only** — curated places, verified real-time events, and neighborhood binding that eliminates cross-bay drift.
 
@@ -196,7 +196,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v1.0.0, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v1.2.1, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```

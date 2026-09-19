@@ -26,7 +26,7 @@ const ENDPOINT = process.env.DAYPLAY_MCP_URL || DEFAULT_ENDPOINT;
 
 const SERVER_INFO = {
   name: "dayplay",
-  version: "1.0.0",
+  version: "1.2.1",
 };
 
 const log = (...args) => console.error("[dayplay-mcp]", ...args);
@@ -34,7 +34,7 @@ const log = (...args) => console.error("[dayplay-mcp]", ...args);
 /** Build a connected remote client. */
 async function connectRemote() {
   const client = new Client(
-    { name: "dayplay-mcp-proxy", version: "1.0.0" },
+    { name: "dayplay-mcp-proxy", version: "1.2.1" },
     { capabilities: {} },
   );
   const transport = new StreamableHTTPClientTransport(new URL(ENDPOINT));
