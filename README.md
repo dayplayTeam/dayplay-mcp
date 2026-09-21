@@ -114,6 +114,15 @@ Query curated places filtered by neighborhood, open-now status, ratings, or newl
 
 Example prompt: *"Find a place open right now in North Beach with a 4.5+ rating."*
 
+### `plan_outing` 🔒 *free account*
+
+Builds a complete multi-stop outing itinerary (dinner, drinks, events) with walkable legs and timings, matched to vibe, interests, and budget. First call returns a free 2-stop preview plus a one-time connect code (`DP-XXXXXX`) and `https://www.dayplay.io/link`; a free DayPlay account unlocks the full plan, saved to your account and visible in the DayPlay app.
+
+### `manage_saved_plans` 🔒 *free account*
+
+Save itineraries, list saved plans, and set alerts (sellouts, closures, weather) via `action: "save" | "list" | "set_alert" | "cancel_alert"`. Requires the same free-account connect. Saved plans appear in your DayPlay account across web and app.
+
+
 ### `get_events`
 
 Query verified, real-time event occurrences strictly filtered by date, neighborhood, and category.
@@ -198,7 +207,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v1.2.1, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.1, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```
