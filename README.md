@@ -2,6 +2,8 @@
 
 **`@dayplayai/mcp-server`** · v1.3.1 · MIT
 
+[![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
+
 [![smithery badge](https://smithery.ai/badge/dayplayai/dayplay)](https://smithery.ai/servers/dayplayai/dayplay)
 
 A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge for the **San Francisco Bay Area only** — curated places, verified real-time events, and neighborhood binding that eliminates cross-bay drift.
