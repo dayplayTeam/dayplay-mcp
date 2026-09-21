@@ -1,6 +1,6 @@
 # DayPlay — Verified Local Concierge MCP for AI Agents
 
-**`@dayplayai/mcp-server`** · v1.2.1 · MIT
+**`@dayplayai/mcp-server`** · v1.3.1 · MIT
 
 [![smithery badge](https://smithery.ai/badge/dayplayai/dayplay)](https://smithery.ai/servers/dayplayai/dayplay)
 

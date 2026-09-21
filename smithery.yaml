@@ -9,7 +9,7 @@ description: >-
   agents never fabricate venues, events, dates, or hours (Anti-Drift Guarantee).
   One remote URL, no API key. NOT AVAILABLE outside the SF Bay Area — out-of-market
   requests are refused by protocol, never invented.
-version: 1.3.0
+version: 1.3.1
 license: MIT
 homepage: https://www.dayplay.io
 repository: https://github.com/dayplayTeam/dayplay-mcp
