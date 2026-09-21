@@ -1,4 +1,4 @@
-# DayPlay — Verified Local Concierge MCP for AI Agents
+# DayPlay — Verified Local Intelligence MCP for AI Agents
 
 **`@dayplayai/mcp-server`** · v1.3.1 · MIT
 

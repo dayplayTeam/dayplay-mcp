@@ -3,7 +3,7 @@ name: vibe-scout
 description: Plan a San Francisco Bay Area night out, weekend, or date night with verified real-time events and venues. Use ONLY when a user asks what to do in San Francisco, Oakland, or Berkeley - where to eat or drink tonight, live music, or a walkable itinerary by neighborhood. Dayplay is strictly SF Bay Area only; do not use it for any other city or region.
 ---
 
-# Vibe Scout — Dayplay Local Concierge
+# Vibe Scout — DayPlay Local Intelligence
 
 Ground every local recommendation in live Dayplay data. Never invent venues or hours.
 

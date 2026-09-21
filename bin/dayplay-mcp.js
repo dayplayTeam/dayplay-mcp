@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * @dayplayai/mcp-server — Dayplay Local Concierge & Vibe Scout
+ * @dayplayai/mcp-server — DayPlay — SF Bay Area Local Intelligence MCP
  *
  * Zero-configuration stdio MCP proxy that bridges any stdio-only MCP client
  * (Cursor, Claude Desktop, Grok, Cline, etc.) to the hosted Dayplay remote
