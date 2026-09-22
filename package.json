@@ -59,5 +59,6 @@
   "homepage": "https://www.dayplay.io",
   "bugs": {
     "url": "https://github.com/dayplayTeam/dayplay-mcp/issues"
-  }
+  },
+  "mcpName": "io.github.dayplayTeam/dayplay-mcp"
 }
