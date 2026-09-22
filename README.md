@@ -1,6 +1,6 @@
 # DayPlay — Verified Local Intelligence MCP for AI Agents
 
-**`@dayplayai/mcp-server`** · v1.3.1 · MIT
+**`@dayplayai/mcp-server`** · v1.3.2 · MIT
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
@@ -209,7 +209,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.1, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.2, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```
