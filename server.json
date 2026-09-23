@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.Teamdayplay/dayplay-mcp",
+  "name": "io.github.dayplayTeam/dayplay-mcp",
   "description": "DayPlay \u2014 verified SF Bay Area places, events & walkable itineraries for AI agents. Free.",
   "repository": {
     "url": "https://github.com/dayplayTeam/dayplay-mcp",
