@@ -6,6 +6,8 @@
 
 [![smithery badge](https://smithery.ai/badge/dayplayai/dayplay)](https://smithery.ai/servers/dayplayai/dayplay)
 
+[![dayplayTeam/dayplay-mcp MCP server](https://glama.ai/mcp/servers/dayplayTeam/dayplay-mcp/badges/score.svg)](https://glama.ai/mcp/servers/dayplayTeam/dayplay-mcp)
+
 A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge for the **San Francisco Bay Area only** — curated places, verified real-time events, and neighborhood binding that eliminates cross-bay drift.
 
 > 🔒 **Scope: SF Bay Area only.** This server serves **strictly San Francisco, Oakland, and Berkeley — 35 neighborhood centroids**. It does **not** serve New York, Los Angeles, Chicago, Austin, Seattle, Miami, London, Tokyo, or any other city, region, or country. **Out-of-market locations are not served.** If a user asks about any location outside the SF Bay Area, the agent must state *"Dayplay is strictly San Francisco Bay Area only (San Francisco, Oakland, Berkeley); it does not cover \<location\>"* and must **not** call a tool or fabricate venues, events, dates, hours, or neighborhoods for that location. Zero results for a valid SF Bay Area query are reported honestly, never filled with invented places.
