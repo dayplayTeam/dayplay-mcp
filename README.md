@@ -1,12 +1,14 @@
 # DayPlay MCP — SF Bay Area Events, Places & Itineraries for AI Agents
 
-**`@dayplayai/mcp-server`** · v1.3.2 · MIT
+**`@dayplayai/mcp-server`** · v1.3.3 · MIT
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
 [![smithery badge](https://smithery.ai/badge/dayplayai/dayplay)](https://smithery.ai/servers/dayplayai/dayplay)
 
 [![dayplayTeam/dayplay-mcp MCP server](https://glama.ai/mcp/servers/dayplayTeam/dayplay-mcp/badges/score.svg)](https://glama.ai/mcp/servers/dayplayTeam/dayplay-mcp)
+
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/dayplayteam/dayplay-mcp)
 
 A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge for the **San Francisco Bay Area only** — curated places, verified real-time events, and neighborhood binding that eliminates cross-bay drift.
 
@@ -211,7 +213,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.2, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.3, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```
