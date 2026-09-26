@@ -1,6 +1,6 @@
 # DayPlay MCP — SF Bay Area Events, Places & Itineraries for AI Agents
 
-**`@dayplayai/mcp-server`** · v1.3.3 · MIT
+**`@dayplayai/mcp-server`** · v1.3.4 · MIT
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
@@ -14,7 +14,7 @@ A zero-configuration MCP server that gives any AI agent a *locally grounded* con
 
 > 🔒 **Scope: SF Bay Area only.** This server serves **strictly San Francisco, Oakland, and Berkeley — 35 neighborhood centroids**. It does **not** serve New York, Los Angeles, Chicago, Austin, Seattle, Miami, London, Tokyo, or any other city, region, or country. **Out-of-market locations are not served.** If a user asks about any location outside the SF Bay Area, the agent must state *"Dayplay is strictly San Francisco Bay Area only (San Francisco, Oakland, Berkeley); it does not cover \<location\>"* and must **not** call a tool or fabricate venues, events, dates, hours, or neighborhoods for that location. Zero results for a valid SF Bay Area query are reported honestly, never filled with invented places.
 
-**Remote endpoint:** `https://www.dayplay.io/api/mcp` (Streamable HTTP / MCP)
+**Remote endpoint:** `https://api.dayplay.io/mcp` (Streamable HTTP / MCP)
 
 ---
 
@@ -28,7 +28,7 @@ A zero-configuration MCP server that gives any AI agent a *locally grounded* con
 {
   "mcpServers": {
     "dayplay": {
-      "url": "https://www.dayplay.io/api/mcp"
+      "url": "https://api.dayplay.io/mcp"
     }
   }
 }
@@ -72,7 +72,7 @@ Restart Claude Desktop, then ask: *"What's happening in the Mission tonight?"*
 Add the Dayplay remote connector:
 
 ```
-https://www.dayplay.io/api/mcp
+https://api.dayplay.io/mcp
 ```
 
 Or bridge it over stdio in Grok's MCP config:
@@ -120,13 +120,13 @@ Query curated places filtered by neighborhood, open-now status, ratings, or newl
 
 Example prompt: *"Find a place open right now in North Beach with a 4.5+ rating."*
 
-### `plan_outing` 🔒 *free account*
+### `plan_outing` 🔒 *Google connect*
 
-Builds a complete multi-stop outing itinerary (dinner, drinks, events) with walkable legs and timings, matched to vibe, interests, and budget. First call returns a free 2-stop preview plus a one-time connect code (`DP-XXXXXX`) and `https://www.dayplay.io/link`; a free DayPlay account unlocks the full plan, saved to your account and visible in the DayPlay app.
+Saves an outing for a date and neighborhood onto the signed-in user's Saved tab. A host connected to the remote URL opens Google sign-in. The stdio package opens a browser for the same connect step.
 
-### `manage_saved_plans` 🔒 *free account*
+### `manage_saved_plans` 🔒 *Google connect*
 
-Save itineraries, list saved plans, and set alerts (sellouts, closures, weather) via `action: "save" | "list" | "set_alert" | "cancel_alert"`. Requires the same free-account connect. Saved plans appear in your DayPlay account across web and app.
+List or save the signed-in user's itinerary via `action: "save" | "list"`. `set_alert` and `cancel_alert` report that sellout, closure, and weather alerts are not available yet. Saved plans appear on the Dayplay Saved tab.
 
 
 ### `get_events`
@@ -176,7 +176,7 @@ That is the product: the answer stays where you are.
 
 | Env var | Default | Purpose |
 | --- | --- | --- |
-| `DAYPLAY_MCP_URL` | `https://www.dayplay.io/api/mcp` | Override the remote endpoint (staging, self-hosted, local dev) |
+| `DAYPLAY_MCP_URL` | `https://api.dayplay.io/mcp` | Override the remote endpoint (staging, self-hosted, local dev) |
 
 No API key is required for the public endpoint. Optional auth tokens, if your deployment needs them, are passed through as standard `Authorization` headers by the MCP client — never commit them to config files.
 
@@ -185,7 +185,7 @@ No API key is required for the public endpoint. Optional auth tokens, if your de
 ## How the proxy works
 
 ```
-MCP client (stdio)  ⇄  bin/dayplay-mcp.js  ⇄  https://www.dayplay.io/api/mcp (Streamable HTTP)
+MCP client (stdio)  ⇄  bin/dayplay-mcp.js  ⇄  https://api.dayplay.io/mcp (Streamable HTTP)
 ```
 
 The shim lists tools and forwards `tools/call` verbatim to the remote endpoint, so new Dayplay tools appear automatically without an npm update. It is a transport bridge, not a reimplementation — every schema, filter, and verification rule is served by Dayplay itself.
@@ -213,7 +213,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.3, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.4, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```

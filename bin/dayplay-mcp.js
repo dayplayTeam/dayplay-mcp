@@ -16,12 +16,14 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { UnauthorizedError } from "@modelcontextprotocol/sdk/client/auth.js";
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
+import { createAuthProvider } from "./oauth.js";
 
-const DEFAULT_ENDPOINT = "https://www.dayplay.io/api/mcp";
+const DEFAULT_ENDPOINT = "https://api.dayplay.io/mcp";
 const ENDPOINT = process.env.DAYPLAY_MCP_URL || DEFAULT_ENDPOINT;
 
 const SERVER_INFO = {
@@ -37,9 +39,25 @@ async function connectRemote() {
     { name: "dayplay-mcp-proxy", version: "1.3.1" },
     { capabilities: {} },
   );
-  const transport = new StreamableHTTPClientTransport(new URL(ENDPOINT));
+  const authProvider = await createAuthProvider(ENDPOINT, log);
+  const transport = new StreamableHTTPClientTransport(new URL(ENDPOINT), { authProvider });
   await client.connect(transport);
   return client;
+}
+
+async function callRemote(remote, request) {
+  const params = {
+    name: request.params.name,
+    arguments: request.params.arguments ?? {},
+  };
+  try {
+    return await remote.callTool(params);
+  } catch (error) {
+    if (error instanceof UnauthorizedError || error?.name === "UnauthorizedError") {
+      return remote.callTool(params);
+    }
+    throw error;
+  }
 }
 
 /** `--smoke`: verify the remote endpoint and exit non-zero on failure. */
@@ -75,10 +93,7 @@ async function main() {
   });
 
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
-    return remote.callTool({
-      name: request.params.name,
-      arguments: request.params.arguments ?? {},
-    });
+    return callRemote(remote, request);
   });
 
   const shutdown = async () => {
