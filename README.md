@@ -1,6 +1,6 @@
 # DayPlay MCP — SF Bay Area Events, Places & Itineraries for AI Agents
 
-**`@dayplayai/mcp-server`** · v1.3.4 · MIT
+**`@dayplayai/mcp-server`** · v2.0.0 · MIT
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
@@ -102,56 +102,48 @@ Prints the live endpoint and available tool names. Exits non-zero on failure.
 
 ## Tools
 
-Every tool is bound to the SF Bay Area (San Francisco, Oakland, Berkeley — 35 centroids). Out-of-market locations are declined, never fabricated.
+The catalog covers the SF Bay Area (San Francisco, Oakland, Berkeley — 35 centroids). Out-of-market locations are declined, never fabricated.
 
-### `get_places`
+**Open tools** run immediately — no account needed. **Gated tools** 🔒 return `401` on first call; your host opens Google sign-in and a free DayPlay account unlocks them. Through the npm stdio bridge, gated calls fail instead of opening sign-in — prefer the direct remote URL for gated tools.
 
-Query curated places filtered by neighborhood, open-now status, ratings, or newly opened window.
+### Discovery (open)
 
-**SCOPE:** San Francisco Bay Area only (San Francisco, Oakland, Berkeley). Out-of-market locations (e.g. Austin, New York, Tokyo) are declined — never fabricate venues. Spatially verified to eliminate cross-bay and geographic drift.
+- `get_happening_today` — events + places happening today, by location and radius
+- `get_live_now` — what is happening right now
+- `get_weekend` — Saturday/Sunday feed (`weekend_day: "sat" | "sun"`)
+- `get_decision_feed` — ranked decision feed (send `user_lat` / `user_lng`)
+- `browse_places` — places inside a radius, sorted by distance
+- `get_listing` — full detail for one place or venue by `id`
+- `get_top_restaurants` / `get_top_venues` — ranked lists, optional city
+- `get_local_gems` — curated local gems
+- `get_locals_favorites` — locals' favorites
+- `get_venue_events` — upcoming events at one venue (`id`)
+- `get_subcategories` / `get_genres` / `get_event_bridge` — taxonomy feeds
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `neighborhood` | string | SF Bay Area neighborhood name (SF, Oakland, Berkeley only) |
-| `open_now` | boolean | Filter strictly for places open right now |
-| `sort` | `"rating"` \| `"distance"` | Sort order |
-| `newly_opened_days` | integer | Filter for places opened in the last N days |
-| `limit` | integer | Max places to return (default 20) |
+### Marketing feeds (open, X-API-Key)
 
-Example prompt: *"Find a place open right now in North Beach with a 4.5+ rating."*
+- `get_marketing_events` / `get_marketing_places` / `get_marketing_neighborhoods` — catalog feeds; forward an `X-API-Key` header. `get_marketing_neighborhoods` returns the **35 SF Bay Area neighborhood centroids with coordinates and radii**.
 
-### `plan_outing` 🔒 *Google connect*
+### Search 🔒 *free account*
 
-Saves an outing for a date and neighborhood onto the signed-in user's Saved tab. A host connected to the remote URL opens Google sign-in. The stdio package opens a browser for the same connect step.
+- `search_smart`, `search_query_router`, `search_embed`, `search_parse_intent`, `search_rerank`, `search_web` — model-backed semantic search. Requires the user token via Google connect.
 
-### `manage_saved_plans` 🔒 *Google connect*
+### Saves & Outings 🔒 *free account*
 
-List or save the signed-in user's itinerary via `action: "save" | "list"`. `set_alert` and `cancel_alert` report that sellout, closure, and weather alerts are not available yet. Saved plans appear on the Dayplay Saved tab.
+- `save_outing` — save a dated, neighborhood-bound outing plan to the signed-in user's Saved tab
+- `get_my_itinerary` — retrieve the signed-in user's saved itineraries
+- `list_saves`, `save_listing`, `unsave_listing`, `list_going`, `mark_going`, `unmark_going` — saved places and event RSVPs
+- `upvote_listing`, `share_local_favorite`, `share_gem` — community signals
 
+Requires the free-account connect. A host connected to the remote URL opens Google sign-in on the first gated call; the npm stdio package opens a browser for the same connect step. Saved plans appear on the DayPlay Saved tab across web and app.
 
-### `get_events`
+Requires the free-account connect (`https://www.dayplay.io/link`). Saved plans appear on the DayPlay Saved tab across web and app.
 
-Query verified, real-time event occurrences strictly filtered by date, neighborhood, and category.
+Example prompts: *"What's happening in the Mission tonight?"* · *"Build me a Saturday itinerary that never leaves Bernal Heights."* · *"Save this outing to my DayPlay account."*
 
-**SCOPE:** San Francisco Bay Area only (San Francisco, Oakland, Berkeley). Out-of-market locations are declined — never fabricate events. Spatially verified to eliminate cross-bay and geographic drift.
+### Legacy compatibility
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `date` | string (`YYYY-MM-DD`) | Target date |
-| `neighborhood` | string | SF Bay Area neighborhood name (e.g. Mission, North Beach, Oakland, Berkeley) |
-| `category` | string | Category filter (e.g. music, art, food) |
-| `source` | string | Data source filter |
-| `limit` | integer | Max events to return (default 20) |
-
-Example prompt: *"Which Berkeley music events are on this Saturday?"*
-
-### `get_neighborhoods`
-
-Returns the complete and exclusive list of **35 San Francisco Bay Area neighborhood centroids with coordinates and radii** (San Francisco, Oakland, Berkeley only). No other market is covered. Use to strictly bind itineraries to a specific neighborhood and to detect out-of-market queries.
-
-Example prompt: *"Give me the neighborhood list, then build a Saturday itinerary that never leaves Bernal Heights."*
-
----
+The five 1.x tool names (`get_neighborhoods`, `get_events`, `get_places`, `plan_outing`, `manage_saved_plans`) remain temporarily served for transition. They are deprecated — migrate to the catalog above; a future release removes them.
 
 ## The Anti-Drift Guarantee
 

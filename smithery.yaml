@@ -1,7 +1,7 @@
 name: dayplay
 displayName: DayPlay — SF Bay Area Local Intelligence for AI Agents
 description: >-
-  Verified real-time places, events & walkable itineraries for AI agents.
+  Verified real-time SF Bay Area places, events & itineraries for AI agents.
   Geo-locked to San Francisco, Oakland & Berkeley (35 neighborhood centroids).
   3 free discovery tools; a free account unlocks plan_outing — full multi-stop
   evening plans with walk times, saved to the user's DayPlay account — plus
@@ -42,21 +42,15 @@ startCommand:
     properties: {}
     required: []
 tools:
-  - name: get_places
-    description: >-
-      Query curated places filtered by neighborhood, open-now status, ratings, or
-      newly opened window. SCOPE: San Francisco Bay Area only (San Francisco,
-      Oakland, Berkeley, 35 neighborhood centroids). Out-of-market locations
-      (e.g. Austin, New York, Tokyo) are declined - never fabricate venues.
-  - name: get_events
-    description: >-
-      Query verified, real-time event occurrences strictly filtered by date,
-      neighborhood, and category. SCOPE: San Francisco Bay Area only (San
-      Francisco, Oakland, Berkeley, 35 neighborhood centroids). Out-of-market
-      locations are declined - never fabricate events.
-  - name: get_neighborhoods
-    description: >-
-      Returns the complete and exclusive list of 35 San Francisco Bay Area
-      neighborhood centroids (San Francisco, Oakland, Berkeley only) with
-      coordinates and radii. No other market is covered. Use to strictly bind
-      itineraries to a specific neighborhood and to detect out-of-market queries.
+  - name: get_happening_today
+    description: Events and places happening today (lat/lng/radius).
+  - name: get_weekend
+    description: Saturday or Sunday feed.
+  - name: get_live_now
+    description: What is happening right now.
+  - name: search_smart
+    description: Smart search (gated - requires free DayPlay account via Google connect).
+  - name: save_outing
+    description: Save a multi-stop outing plan (gated - free account).
+  - name: get_my_itinerary
+    description: Retrieve saved itineraries (gated - free account).
