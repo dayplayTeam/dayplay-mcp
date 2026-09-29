@@ -1,0 +1,59 @@
+name: Sync catalog from the Go API
+
+# dayplay's mcp-downstream workflow dispatches this when the Go catalog
+# fingerprint changes. A new patch tag is pushed with MCP_DOWNSTREAM_TOKEN
+# so Publish to npm (Trusted Publishing / OIDC) actually starts.
+
+on:
+  repository_dispatch:
+    types: [mcp-catalog-changed]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Apply catalog snapshot
+        id: apply
+        env:
+          MCP_CATALOG: ${{ toJson(github.event.client_payload) }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$MCP_CATALOG" > "$RUNNER_TEMP/mcp-catalog.json"
+          result="$(node scripts/apply-mcp-sync.mjs "$RUNNER_TEMP/mcp-catalog.json")"
+          echo "result=${result}" >> "$GITHUB_OUTPUT"
+          if [ "$result" = "unchanged" ]; then
+            echo "Catalog fingerprint already published."
+            exit 0
+          fi
+          npm version patch --no-git-tag-version
+          version="$(node scripts/apply-mcp-sync.mjs "$RUNNER_TEMP/mcp-catalog.json" --stamp)"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Tag and push
+        if: steps.apply.outputs.result == 'bump'
+        env:
+          TOKEN: ${{ secrets.MCP_DOWNSTREAM_TOKEN }}
+          VERSION: ${{ steps.apply.outputs.version }}
+        run: |
+          set -euo pipefail
+          if [ -z "${TOKEN}" ]; then
+            echo "::error::Set secret MCP_DOWNSTREAM_TOKEN in dayplay-mcp. A GITHUB_TOKEN push does not start the npm publish workflow."
+            exit 1
+          fi
+          echo "::add-mask::${TOKEN}"
+          git config user.name "dayplay-mcp-sync"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json server.json smithery.yaml README.md catalog-sync.json
+          git commit -m "chore: sync MCP catalog to v${VERSION}"
+          git tag "v${VERSION}"
+          git push "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+          git push "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "refs/tags/v${VERSION}"
