@@ -8,7 +8,7 @@ description: >-
   open now supported through the stdio bridge). Honest zero-results protocol:
   agents never fabricate venues, events, dates, or hours (Anti-Drift Guarantee).
   One remote URL.
-version: 2.0.0
+version: 2.0.1
 license: MIT
 homepage: https://www.dayplay.io
 repository: https://github.com/dayplayTeam/dayplay-mcp

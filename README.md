@@ -104,7 +104,7 @@ Prints the live endpoint and available tool names. Exits non-zero on failure.
 
 The catalog covers the SF Bay Area (San Francisco, Oakland, Berkeley — 35 centroids). Out-of-market locations are declined, never fabricated.
 
-**Open tools** run immediately — no account needed. **Gated tools** 🔒 return `401` on first call; your host opens Google sign-in and a free DayPlay account unlocks them. Through the npm stdio bridge, gated calls fail instead of opening sign-in — prefer the direct remote URL for gated tools.
+**Open tools** run immediately — no account needed. **Gated tools** return `401` on first call. The remote URL and `npx -y @dayplayai/mcp-server` both serve this same 40-tool catalog, and the npm bridge opens Google sign-in for gated tools.
 
 ### Discovery (open)
 
@@ -132,7 +132,7 @@ The catalog covers the SF Bay Area (San Francisco, Oakland, Berkeley — 35 cent
 
 - `save_outing` — save a dated, neighborhood-bound outing plan to the signed-in user's Saved tab
 - `get_my_itinerary` — retrieve the signed-in user's saved itineraries
-- `list_saves`, `save_listing`, `unsave_listing`, `list_going`, `mark_going`, `unmark_going` — saved places and event RSVPs
+- `list_saves`, `save_listing`, `unsave_listing`, `list_going`, `mark_going`, `unmark_going`, `get_profile` — saved places, event RSVPs, and the signed-in profile
 - `upvote_listing`, `share_local_favorite`, `share_gem` — community signals
 
 Requires the free-account connect. A host connected to the remote URL opens Google sign-in on the first gated call; the npm stdio package opens a browser for the same connect step. Saved plans appear on the DayPlay Saved tab across web and app.
@@ -143,7 +143,7 @@ Example prompts: *"What's happening in the Mission tonight?"* · *"Build me a Sa
 
 ### Legacy compatibility
 
-The five 1.x tool names (`get_neighborhoods`, `get_events`, `get_places`, `plan_outing`, `manage_saved_plans`) remain temporarily served for transition. They are deprecated — migrate to the catalog above; a future release removes them.
+The original five names are part of the 40-tool catalog: `get_neighborhoods`, `get_events`, and `get_places` are open. `plan_outing` and `manage_saved_plans` need Google connect. `plan_outing` applies a comma-separated `interests` value as the catalog category filter.
 
 ## The Anti-Drift Guarantee
 
