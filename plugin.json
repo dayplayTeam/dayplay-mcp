@@ -1,15 +1,11 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dayplay-local-concierge",
-  "description": "Verified real-time SF Bay Area places, events & itineraries for AI agents. 40-tool catalog: open feeds (today/weekend/live-now, browse, venues, gems) + gated search, saves & outing planning via free Google connect. Strictly San Francisco, Oakland, Berkeley (Anti-Drift Guarantee).",
-  "version": "2.0.0",
-  "author": {
-    "name": "Dayplay Team",
-    "email": "hello@dayplay.io",
-    "url": "https://www.dayplay.io"
-  },
+  "version": "2.1.0",
+  "description": "Verified real-time SF Bay Area physical intelligence for AI agents: places, events & walkable itineraries. 40-tool catalog across 35 neighborhood centroids: open feeds (today/weekend/live-now, browse, venues, gems) + gated search, saves & outing planning via free Google connect. Strictly San Francisco, Oakland, Berkeley (Anti-Drift Guarantee).",
   "homepage": "https://www.dayplay.io",
   "repository": "https://github.com/dayplayTeam/dayplay-mcp",
+  "logo": "assets/logo.svg",
   "license": "MIT",
   "keywords": [
     "san-francisco",
@@ -28,7 +24,11 @@
     "berkeley",
     "alerts"
   ],
-  "logo": "assets/logo.svg",
+  "author": {
+    "name": "Dayplay Team",
+    "email": "hello@dayplay.io",
+    "url": "https://www.dayplay.io"
+  },
   "mcp": {
     "servers": {
       "dayplay": {

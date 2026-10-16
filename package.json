@@ -1,7 +1,8 @@
 {
   "name": "@dayplayai/mcp-server",
-  "version": "2.0.3",
-  "description": "DayPlay MCP — verified real-time SF Bay Area places, events & itineraries for AI agents. 40-tool catalog: feeds, search, saves, and the original neighborhood, event, place, and outing names. Gated tools open Google connect. Remote endpoint: https://api.dayplay.io/mcp",
+  "version": "2.1.0",
+  "description": "DayPlay MCP — verified real-time SF Bay Area places, events & walkable itineraries for AI agents. 40-tool catalog across 35 neighborhood centroids: open feeds, search, saves & outing planning (gated tools need a free account via Google connect). Remote endpoint: https://api.dayplay.io/mcp",
+
   "keywords": [
     "mcp",
     "model-context-protocol",

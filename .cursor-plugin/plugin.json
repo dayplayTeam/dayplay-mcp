@@ -1,14 +1,11 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dayplay-local-concierge",
-  "description": "Verified real-time SF Bay Area places, events & walkable itineraries for AI agents. 3 free discovery tools; a free DayPlay account unlocks plan_outing (full multi-stop outing plans, saved to the user's account) and manage_saved_plans (saved plans + alerts). Strictly San Francisco, Oakland, Berkeley \u2014 out-of-market requests refused by protocol (Anti-Drift Guarantee).",
-  "version": "1.3.2",
-  "author": {
-    "name": "Dayplay Team",
-    "email": "hello@dayplay.io"
-  },
+  "version": "2.1.0",
+  "description": "Verified real-time SF Bay Area physical intelligence for AI agents: places, events & walkable itineraries. 40-tool catalog across 35 neighborhood centroids: open feeds, browse, venues, gems, plus search, saves & outing planning. Strictly San Francisco, Oakland, Berkeley (Anti-Drift Guarantee).",
   "homepage": "https://www.dayplay.io",
   "repository": "https://github.com/dayplayTeam/dayplay-mcp",
+  "logo": "assets/logo.svg",
   "license": "MIT",
   "keywords": [
     "san-francisco",
@@ -27,5 +24,19 @@
     "berkeley",
     "alerts"
   ],
-  "logo": "assets/logo.svg"
+  "author": {
+    "name": "Dayplay Team",
+    "email": "hello@dayplay.io",
+    "url": "https://www.dayplay.io"
+  },
+  "mcp": {
+    "servers": {
+      "dayplay": {
+        "url": "https://api.dayplay.io/mcp"
+      }
+    }
+  },
+  "skills": [
+    "skills/vibe-scout/SKILL.md"
+  ]
 }

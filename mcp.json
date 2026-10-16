@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "dayplay": {
+      "url": "https://api.dayplay.io/mcp"
+    }
+  }
+}

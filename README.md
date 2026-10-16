@@ -1,6 +1,6 @@
 # DayPlay MCP — SF Bay Area Events, Places & Itineraries for AI Agents
 
-**`@dayplayai/mcp-server`** · v2.0.0 · MIT
+**`@dayplayai/mcp-server`** · v2.1.0 · MIT
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
