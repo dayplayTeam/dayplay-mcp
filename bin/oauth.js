@@ -21,8 +21,17 @@ function writeState(state) {
 
 function openBrowser(target) {
   const url = String(target);
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+      return;
+    }
+  } catch {
+    return;
+  }
   if (process.platform === "win32") {
-    spawn("cmd", ["/c", "start", "", url], { detached: true, stdio: "ignore" }).unref();
+    const escapedUrl = url.replace(/[\^&%]/g, "^$&");
+    spawn("cmd", ["/c", "start", "", escapedUrl], { detached: true, stdio: "ignore" }).unref();
     return;
   }
   const command = process.platform === "darwin" ? "open" : "xdg-open";
