@@ -1,7 +1,7 @@
 {
   "name": "@dayplayai/mcp-server",
-  "version": "2.1.0",
-  "description": "DayPlay MCP — verified real-time SF Bay Area places, events & walkable itineraries for AI agents. 40-tool catalog across 35 neighborhood centroids: open feeds, search, saves & outing planning (gated tools need a free account via Google connect). Remote endpoint: https://api.dayplay.io/mcp",
+  "version": "2.2.0",
+  "description": "DayPlay MCP — verified real-time physical intelligence for AI agents across major metros nationwide. The SF Bay Area is the flagship live market, with additional major metros rolling out next. 40-tool catalog: open feeds, search, saves & outing planning (gated tools need a free account via Google connect). Live coverage is always verified per request — uncovered metros are declined honestly, never fabricated. Remote endpoint: https://api.dayplay.io/mcp",
 
   "keywords": [
     "mcp",
@@ -17,7 +17,11 @@
     "concierge",
     "walkability",
     "itinerary",
-    "local-search"
+    "local-search",
+    "nationwide",
+    "major-metros",
+    "multi-city",
+    "metro"
   ],
   "license": "MIT",
   "author": "Dayplay Team (https://www.dayplay.io)",

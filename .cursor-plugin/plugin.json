@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dayplay-local-concierge",
-  "version": "2.1.0",
-  "description": "Verified real-time SF Bay Area physical intelligence for AI agents: places, events & walkable itineraries. 40-tool catalog across 35 neighborhood centroids: open feeds, browse, venues, gems, plus search, saves & outing planning. Strictly San Francisco, Oakland, Berkeley (Anti-Drift Guarantee).",
+  "version": "2.2.0",
+  "description": "Verified real-time physical intelligence for AI agents across major metros nationwide: places, events & walkable itineraries. 40-tool catalog: open feeds, browse, venues, gems, plus search, saves & outing planning. SF Bay Area is the flagship live market, with additional major metros rolling out next (Anti-Drift Guarantee).",
   "homepage": "https://www.dayplay.io",
   "repository": "https://github.com/dayplayTeam/dayplay-mcp",
   "logo": "assets/logo.svg",
@@ -22,7 +22,10 @@
     "outing-planner",
     "oakland",
     "berkeley",
-    "alerts"
+    "alerts",
+    "nationwide",
+    "major-metros",
+    "multi-city"
   ],
   "author": {
     "name": "Dayplay Team",

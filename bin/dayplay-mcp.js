@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * @dayplayai/mcp-server — DayPlay — SF Bay Area Local Intelligence MCP
+ * @dayplayai/mcp-server — DayPlay — verified physical intelligence MCP
+ * (major metros nationwide; SF Bay Area is the flagship live market)
  *
  * Zero-configuration stdio MCP proxy that bridges any stdio-only MCP client
  * (Cursor, Claude Desktop, Grok, Cline, etc.) to the hosted Dayplay remote

@@ -1,6 +1,8 @@
-# DayPlay MCP — SF Bay Area Events, Places & Itineraries for AI Agents
+# DayPlay MCP — Verified Real-Time Physical Intelligence for Major Metros Nationwide
 
-**`@dayplayai/mcp-server`** · v2.1.0 · MIT
+**`@dayplayai/mcp-server`** · v2.2.0 · MIT
+
+DayPlay gives AI agents verified real-time physical intelligence — places, events, and walkable itineraries — across **major metros nationwide**. The **SF Bay Area is our flagship live market**, with **additional major metros rolling out next**.
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
@@ -10,9 +12,9 @@
 
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/dayplayteam/dayplay-mcp)
 
-A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge for the **San Francisco Bay Area only** — curated places, verified real-time events, and neighborhood binding that eliminates cross-bay drift.
+A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge across **major metros nationwide** — curated places, verified real-time events, and neighborhood binding that eliminates cross-metro and cross-bay drift. The **SF Bay Area is the flagship live market**, with **additional major metros rolling out next**.
 
-> 🔒 **Scope: SF Bay Area only.** This server serves **strictly San Francisco, Oakland, and Berkeley — 35 neighborhood centroids**. It does **not** serve New York, Los Angeles, Chicago, Austin, Seattle, Miami, London, Tokyo, or any other city, region, or country. **Out-of-market locations are not served.** If a user asks about any location outside the SF Bay Area, the agent must state *"Dayplay is strictly San Francisco Bay Area only (San Francisco, Oakland, Berkeley); it does not cover \<location\>"* and must **not** call a tool or fabricate venues, events, dates, hours, or neighborhoods for that location. Zero results for a valid SF Bay Area query are reported honestly, never filled with invented places.
+> 🔒 **Coverage: nationwide posture, verified per request.** DayPlay covers **major metros nationwide**, with the **SF Bay Area as the flagship live market** (San Francisco, Oakland, and Berkeley — 35 neighborhood centroids) and **additional major metros rolling out next**. Live inventory is **not** uniform across every metro yet, so the rule is simple: **call the coverage tools first and trust what they return.** If a location comes back as not-yet-live or out of market, the agent must say so plainly — *"DayPlay doesn't have live coverage for \<location\> yet"* — and must **not** fabricate venues, events, dates, hours, or neighborhoods for it. Zero results for a covered query are reported honestly, never filled with invented places. This per-request check is what keeps the nationwide posture truthful.
 
 **Remote endpoint:** `https://api.dayplay.io/mcp` (Streamable HTTP / MCP)
 
@@ -102,7 +104,7 @@ Prints the live endpoint and available tool names. Exits non-zero on failure.
 
 ## Tools
 
-The catalog covers the SF Bay Area (San Francisco, Oakland, Berkeley — 35 centroids). Out-of-market locations are declined, never fabricated.
+The catalog spans **major metros nationwide**, with the SF Bay Area as the flagship live market (San Francisco, Oakland, Berkeley — 35 centroids) and additional major metros rolling out next. Coverage is verified per request: a metro that isn't live yet is declined honestly, never fabricated.
 
 **Open tools** run immediately — no account needed. **Gated tools** return `401` on first call. The remote URL and `npx -y @dayplayai/mcp-server` both serve this same 40-tool catalog, and the npm bridge opens Google sign-in for gated tools.
 
@@ -122,7 +124,7 @@ The catalog covers the SF Bay Area (San Francisco, Oakland, Berkeley — 35 cent
 
 ### Marketing feeds (open, X-API-Key)
 
-- `get_marketing_events` / `get_marketing_places` / `get_marketing_neighborhoods` — catalog feeds; forward an `X-API-Key` header. `get_marketing_neighborhoods` returns the **35 SF Bay Area neighborhood centroids with coordinates and radii**.
+- `get_marketing_events` / `get_marketing_places` / `get_marketing_neighborhoods` — catalog feeds; forward an `X-API-Key` header. `get_marketing_neighborhoods` returns the **live-market neighborhood centroids with coordinates and radii** (currently the 35 SF Bay Area hubs; new metros appear here as they go live).
 
 ### Search 🔒 *free account*
 
@@ -149,15 +151,15 @@ The original five names are part of the 40-tool catalog: `get_neighborhoods`, `g
 
 Most local AI answers fail the same way: a "Mission" recommendation lands in Oakland, a "Berkeley" event is actually in San Jose, and a walking itinerary silently requires a bridge crossing.
 
-**Scope:** SF Bay Area only (San Francisco, Oakland, Berkeley). No national or global coverage.
+**Scope:** major metros nationwide, with the SF Bay Area as the flagship live market and additional major metros rolling out next. Live coverage is verified per request — the guarantee is that DayPlay never answers for a place it hasn't verified, not that every metro is live on day one.
 
 **Dayplay receipts:**
 
-- **Spatially verified.** Every place and event result is validated against neighborhood centroid coordinates and radii pulled live from `get_neighborhoods` (35 Bay Area neighborhoods).
+- **Spatially verified.** Every place and event result is validated against neighborhood centroid coordinates and radii pulled live from `get_neighborhoods` (currently 35 SF Bay Area hubs; the same check applies to each metro as it comes online).
 - **Neighborhood-bound queries.** `neighborhood` is an exact-match binding parameter, not a fuzzy keyword hint — results outside the bound radius are dropped, not ranked down.
-- **Zero cross-bay drift.** No Oakland result in a San Francisco query. No Marin result in an East Bay query. No bridge-crossing itinerary that claims to be walkable.
+- **Zero cross-metro drift.** No Oakland result in a San Francisco query. No Brooklyn result in a Manhattan query. No bridge, tunnel, or cross-river hop presented as a walkable leg.
 - **Real-time, not stale.** `get_events` queries verified occurrences by `date`, so "tonight" means tonight — not an SEO page from last season.
-- **Out-of-market refusal.** Non-Bay-Area market names are refused before any upstream call, and the surfaced copy states the SF-Bay-Area-only boundary rather than returning plausible-but-wrong geography.
+- **Out-of-market refusal.** A market that isn't live yet is refused before any upstream call, and the surfaced copy states the coverage boundary rather than returning plausible-but-wrong geography. As new metros go live, the same guard extends to them automatically.
 - **Honest emptiness.** If a bounded query has no verified matches, it returns nothing rather than padding with invented places.
 
 That is the product: the answer stays where you are.
@@ -205,7 +207,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v1.3.4, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v2.2.0, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```

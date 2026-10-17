@@ -1,19 +1,23 @@
 name: dayplay
-displayName: DayPlay — SF Bay Area Local Intelligence for AI Agents
+displayName: DayPlay — Verified Physical Intelligence for Major Metros Nationwide
 description: >-
-  Verified real-time SF Bay Area places, events & itineraries for AI agents.
-  Geo-locked to San Francisco, Oakland & Berkeley (35 neighborhood centroids).
-  40-tool catalog: open feeds (today/weekend/live-now, browse, venues, gems)
-  plus gated search, saves & outing planning via free Google connect (browser
-  open now supported through the stdio bridge). Honest zero-results protocol:
-  agents never fabricate venues, events, dates, or hours (Anti-Drift Guarantee).
-  One remote URL.
-version: 2.1.0
+  Verified real-time places, events & walkable itineraries for AI agents across
+  major metros nationwide. The SF Bay Area is the flagship live market, with
+  additional major metros rolling out next. 40-tool catalog: open feeds
+  (today/weekend/live-now, browse, venues, gems) plus gated search, saves &
+  outing planning via free Google connect (browser open now supported through
+  the stdio bridge). Live coverage is verified per request, and the honest
+  zero-results protocol means agents never fabricate venues, events, dates, or
+  hours (Anti-Drift Guarantee). One remote URL.
+version: 2.2.0
 
 license: MIT
 homepage: https://www.dayplay.io
 repository: https://github.com/dayplayTeam/dayplay-mcp
 tags:
+  - nationwide
+  - major-metros
+  - multi-city
   - sf
   - san-francisco
   - bay-area
@@ -33,7 +37,7 @@ examples:
   - "Find a place open right now in North Beach with a 4.5+ rating."
   - "Build me a Saturday itinerary that never leaves Bernal Heights."
   - "Which Berkeley events are on this weekend?"
-  - "What's on in Austin tonight? (out of market - Dayplay is strictly SF Bay Area only, so no results are returned)"
+  - "What's on in Austin tonight? (coverage is verified per request - a metro not yet live returns an honest out-of-market result, never fabricated data)"
 startCommand:
   type: http
   url: https://api.dayplay.io/mcp
