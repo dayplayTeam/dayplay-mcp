@@ -1,6 +1,6 @@
 # DayPlay MCP — Verified Real-Time Physical Intelligence for Major Metros Nationwide
 
-**`@dayplayai/mcp-server`** · v2.2.0 · MIT
+**`@dayplayai/mcp-server`** · v2.2.1 · MIT
 
 DayPlay gives AI agents verified real-time physical intelligence — places, events, and walkable itineraries — across **major metros nationwide**. The **SF Bay Area is our flagship live market**, with **additional major metros rolling out next**.
 
@@ -207,7 +207,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v2.2.0, MIT)
+├── package.json              # npm metadata (@dayplayai/mcp-server v2.2.1, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```

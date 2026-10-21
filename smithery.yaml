@@ -9,7 +9,7 @@ description: >-
   the stdio bridge). Live coverage is verified per request, and the honest
   zero-results protocol means agents never fabricate venues, events, dates, or
   hours (Anti-Drift Guarantee). One remote URL.
-version: 2.2.0
+version: 2.2.1
 
 license: MIT
 homepage: https://www.dayplay.io

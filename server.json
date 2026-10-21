@@ -1,14 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Teamdayplay/dayplay-mcp",
-  "version": "2.2.0",
-  "description": "DayPlay MCP — verified real-time physical intelligence for AI agents: places, events & walkable itineraries across major metros nationwide. SF Bay Area is the flagship live market, with additional major metros rolling out next. Coverage is verified per request — uncovered metros return honest zero/out-of-market results, never fabricated.",
-
+  "version": "2.2.1",
+  "description": "Verified real-time places and events for AI agents. SF Bay Area live; more metros rolling out.",
   "repository": {
     "url": "https://github.com/dayplayTeam/dayplay-mcp",
     "source": "github"
   },
-
   "remotes": [
     {
       "type": "streamable-http",
