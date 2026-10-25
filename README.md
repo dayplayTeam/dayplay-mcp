@@ -6,7 +6,7 @@ DayPlay gives AI agents verified real-time physical intelligence — places, eve
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
-[![smithery badge](https://smithery.ai/badge/dayplayai/dayplay)](https://smithery.ai/servers/dayplayai/dayplay)
+[![LightNow capabilities](https://lightnow.ai/badge/io.github.dayplayTeam/dayplay-mcp)](https://lightnow.ai/servers/io.github.dayplayTeam/dayplay-mcp)
 
 [![dayplayTeam/dayplay-mcp MCP server](https://glama.ai/mcp/servers/dayplayTeam/dayplay-mcp/badges/score.svg)](https://glama.ai/mcp/servers/dayplayTeam/dayplay-mcp)
 
