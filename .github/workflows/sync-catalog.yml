@@ -2,7 +2,7 @@ name: Sync catalog from the Go API
 
 # dayplay's mcp-downstream workflow dispatches this when the Go catalog
 # fingerprint changes. A new patch tag is pushed with MCP_DOWNSTREAM_TOKEN
-# so Publish to npm (Trusted Publishing / OIDC) actually starts.
+# so the MCP registry publish starts. npm is not published.
 
 on:
   repository_dispatch:
@@ -46,7 +46,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "${TOKEN}" ]; then
-            echo "::error::Set secret MCP_DOWNSTREAM_TOKEN in dayplay-mcp. A GITHUB_TOKEN push does not start the npm publish workflow."
+            echo "::error::Set secret MCP_DOWNSTREAM_TOKEN in dayplay-mcp. A GITHUB_TOKEN push does not start the MCP registry publish."
             exit 1
           fi
           echo "::add-mask::${TOKEN}"

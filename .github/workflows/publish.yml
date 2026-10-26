@@ -1,9 +1,6 @@
-name: Publish to npm (Trusted Publishing / OIDC)
+name: Publish to the MCP registry
 
-# Release flow: bump version in package.json, commit, tag, push.
-#   npm version patch && git push --follow-tags
-# npm's trusted-publisher binding (configured once on npmjs.com) authorizes
-# publishes from this exact repo + workflow — no NPM_TOKEN secret required.
+# A v* tag updates the official MCP registry. npm is not published.
 
 on:
   push:
@@ -12,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write # OIDC for npm trusted publishing + provenance
+  id-token: write # OIDC for the MCP registry publisher
   contents: read
 
 jobs:
@@ -24,8 +21,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          registry-url: "https://registry.npmjs.org"
-          # No NODE_AUTH_TOKEN — auth is OIDC-based via id-token: write
 
       - name: Verify version matches tag
         run: |
@@ -36,16 +31,10 @@ jobs:
             exit 1
           fi
 
-      - name: Install npm with OIDC trusted-publishing support
-        run: npm install -g npm@latest
-
       - name: Install deps and smoke test
         run: |
           npm ci --no-fund --no-audit
           npm run smoke
-
-      - name: Publish with provenance
-        run: npm publish --access public --provenance
 
       - name: Install MCP Publisher
         if: startsWith(github.ref, 'refs/tags/v')
