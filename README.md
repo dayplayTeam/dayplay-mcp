@@ -1,10 +1,10 @@
-# DayPlay MCP — Verified Real-Time Physical Intelligence for Major Metros Nationwide
+# Dayplay MCP — Verified Real-Time Physical Intelligence for Major Metros Nationwide
 
 **`@dayplayai/mcp-server`** · v2.2.2 · MIT
 
-DayPlay gives AI agents verified real-time physical intelligence — places, events, and walkable itineraries — across **major metros nationwide**. The **SF Bay Area is our flagship live market**, with **additional major metros rolling out next**.
+Dayplay gives AI agents verified real-time physical intelligence — places, events, and walkable itineraries — across **major metros nationwide**. The **SF Bay Area is our flagship live market**, with **additional major metros rolling out next**.
 
-[![Run on Apify](https://img.shields.io/badge/Apify_Store-DayPlay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
+[![Run on Apify](https://img.shields.io/badge/Apify_Store-Dayplay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
 [![smithery badge](https://smithery.ai/badge/dayplayai/dayplay)](https://smithery.ai/servers/dayplayai/dayplay)
 
@@ -14,7 +14,7 @@ DayPlay gives AI agents verified real-time physical intelligence — places, eve
 
 A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge across **major metros nationwide** — curated places, verified real-time events, and neighborhood binding that eliminates cross-metro and cross-bay drift. The **SF Bay Area is the flagship live market**, with **additional major metros rolling out next**.
 
-> 🔒 **Coverage: nationwide posture, verified per request.** DayPlay covers **major metros nationwide**, with the **SF Bay Area as the flagship live market** (San Francisco, Oakland, and Berkeley — 35 neighborhood centroids) and **additional major metros rolling out next**. Live inventory is **not** uniform across every metro yet, so the rule is simple: **call the coverage tools first and trust what they return.** If a location comes back as not-yet-live or out of market, the agent must say so plainly — *"DayPlay doesn't have live coverage for \<location\> yet"* — and must **not** fabricate venues, events, dates, hours, or neighborhoods for it. Zero results for a covered query are reported honestly, never filled with invented places. This per-request check is what keeps the nationwide posture truthful.
+> 🔒 **Coverage: nationwide posture, verified per request.** Dayplay covers **major metros nationwide**, with the **SF Bay Area as the flagship live market** (San Francisco, Oakland, and Berkeley — 35 neighborhood centroids) and **additional major metros rolling out next**. Live inventory is **not** uniform across every metro yet, so the rule is simple: **call the coverage tools first and trust what they return.** If a location comes back as not-yet-live or out of market, the agent must say so plainly — *"Dayplay doesn't have live coverage for \<location\> yet"* — and must **not** fabricate venues, events, dates, hours, or neighborhoods for it. Zero results for a covered query are reported honestly, never filled with invented places. This per-request check is what keeps the nationwide posture truthful.
 
 **Remote endpoint:** `https://api.dayplay.io/mcp` (Streamable HTTP / MCP)
 
@@ -137,11 +137,11 @@ The catalog spans **major metros nationwide**, with the SF Bay Area as the flags
 - `list_saves`, `save_listing`, `unsave_listing`, `list_going`, `mark_going`, `unmark_going`, `get_profile` — saved places, event RSVPs, and the signed-in profile
 - `upvote_listing`, `share_local_favorite`, `share_gem` — community signals
 
-Requires the free-account connect. A host connected to the remote URL opens Google sign-in on the first gated call; the npm stdio package opens a browser for the same connect step. Saved plans appear on the DayPlay Saved tab across web and app.
+Requires the free-account connect. A host connected to the remote URL opens Google sign-in on the first gated call; the npm stdio package opens a browser for the same connect step. Saved plans appear on the Dayplay Saved tab across web and app.
 
-Requires the free-account connect (`https://www.dayplay.io/link`). Saved plans appear on the DayPlay Saved tab across web and app.
+Requires the free-account connect (`https://www.dayplay.io/link`). Saved plans appear on the Dayplay Saved tab across web and app.
 
-Example prompts: *"What's happening in the Mission tonight?"* · *"Build me a Saturday itinerary that never leaves Bernal Heights."* · *"Save this outing to my DayPlay account."*
+Example prompts: *"What's happening in the Mission tonight?"* · *"Build me a Saturday itinerary that never leaves Bernal Heights."* · *"Save this outing to my Dayplay account."*
 
 ### Legacy compatibility
 
@@ -151,7 +151,7 @@ The original five names are part of the 40-tool catalog: `get_neighborhoods`, `g
 
 Most local AI answers fail the same way: a "Mission" recommendation lands in Oakland, a "Berkeley" event is actually in San Jose, and a walking itinerary silently requires a bridge crossing.
 
-**Scope:** major metros nationwide, with the SF Bay Area as the flagship live market and additional major metros rolling out next. Live coverage is verified per request — the guarantee is that DayPlay never answers for a place it hasn't verified, not that every metro is live on day one.
+**Scope:** major metros nationwide, with the SF Bay Area as the flagship live market and additional major metros rolling out next. Live coverage is verified per request — the guarantee is that Dayplay never answers for a place it hasn't verified, not that every metro is live on day one.
 
 **Dayplay receipts:**
 
