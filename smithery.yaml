@@ -1,5 +1,5 @@
 name: dayplay
-displayName: DayPlay — Verified Physical Intelligence for Major Metros Nationwide
+displayName: Dayplay — Verified Physical Intelligence for Major Metros Nationwide
 description: >-
   Verified real-time places, events & walkable itineraries for AI agents across
   major metros nationwide. The SF Bay Area is the flagship live market, with
@@ -53,7 +53,7 @@ tools:
   - name: get_live_now
     description: What is happening right now.
   - name: search_smart
-    description: Smart search (gated - requires free DayPlay account via Google connect).
+    description: Smart search (gated - requires free Dayplay account via Google connect).
   - name: save_outing
     description: Save a multi-stop outing plan (gated - free account).
   - name: get_my_itinerary
