@@ -32,6 +32,12 @@ jobs:
           fi
 
       - name: Install deps and smoke test
+        # Smoke contacts the REMOTE endpoint (api.dayplay.io/mcp), not this
+        # release's content. Since 2026-10-28 the remote requires OAuth on /mcp
+        # (even tools/list), so an unauthenticated smoke fails regardless of
+        # release validity. Keep it advisory: a smoke failure must not block
+        # the registry publish.
+        continue-on-error: true
         run: |
           npm ci --no-fund --no-audit
           npm run smoke
