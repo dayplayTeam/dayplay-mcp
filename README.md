@@ -1,6 +1,6 @@
 # Dayplay MCP — Verified Real-Time Physical Intelligence for Major Metros Nationwide
 
-**`@dayplayai/mcp-server`** · v2.2.2 · MIT
+**Dayplay MCP** · v2.2.2 · MIT
 
 Dayplay gives AI agents verified real-time physical intelligence — places, events, and walkable itineraries — across **major metros nationwide**. The **SF Bay Area is our flagship live market**, with **additional major metros rolling out next**.
 
@@ -36,14 +36,23 @@ A zero-configuration MCP server that gives any AI agent a *locally grounded* con
 }
 ```
 
-**Option B — zero-config stdio proxy (works with any client):**
+**Option B — run from source (local stdio bridge for stdio-only clients):**
+
+```bash
+git clone https://github.com/dayplayTeam/dayplay-mcp.git
+cd dayplay-mcp
+npm install
+node bin/dayplay-mcp.js
+```
+
+Then point your client at the local stdio process:
 
 ```json
 {
   "mcpServers": {
     "dayplay": {
-      "command": "npx",
-      "args": ["-y", "@dayplayai/mcp-server"]
+      "command": "node",
+      "args": ["/path/to/dayplay-mcp/bin/dayplay-mcp.js"]
     }
   }
 }
@@ -56,12 +65,26 @@ Edit `claude_desktop_config.json`:
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
+**Option A — direct remote server (recommended):**
+
 ```json
 {
   "mcpServers": {
     "dayplay": {
-      "command": "npx",
-      "args": ["-y", "@dayplayai/mcp-server"]
+      "url": "https://api.dayplay.io/mcp"
+    }
+  }
+}
+```
+
+**Option B — run from source (stdio-only clients):** follow the [run-from-source setup](#option-b--run-from-source-local-stdio-bridge-for-stdio-only-clients) under Cursor, then register the local stdio process:
+
+```json
+{
+  "mcpServers": {
+    "dayplay": {
+      "command": "node",
+      "args": ["/path/to/dayplay-mcp/bin/dayplay-mcp.js"]
     }
   }
 }
@@ -77,14 +100,14 @@ Add the Dayplay remote connector:
 https://api.dayplay.io/mcp
 ```
 
-Or bridge it over stdio in Grok's MCP config:
+Prefer the direct remote connector above. For a stdio-only setup, run from source and bridge the local process in Grok's MCP config:
 
 ```json
 {
   "mcpServers": {
     "dayplay": {
-      "command": "npx",
-      "args": ["-y", "@dayplayai/mcp-server"]
+      "command": "node",
+      "args": ["/path/to/dayplay-mcp/bin/dayplay-mcp.js"]
     }
   }
 }
@@ -95,10 +118,10 @@ Pair it with the [`vibe-scout` skill](skills/vibe-scout/SKILL.md) for prompt-lev
 ### Terminal smoke test
 
 ```bash
-npx -y @dayplayai/mcp-server --smoke
+node bin/dayplay-mcp.js --smoke
 ```
 
-Prints the live endpoint and available tool names. Exits non-zero on failure.
+Run it from a [run-from-source](#option-b--run-from-source-local-stdio-bridge-for-stdio-only-clients) checkout. Prints the live endpoint and available tool names. Exits non-zero on failure.
 
 ---
 
@@ -106,7 +129,7 @@ Prints the live endpoint and available tool names. Exits non-zero on failure.
 
 The catalog spans **major metros nationwide**, with the SF Bay Area as the flagship live market (San Francisco, Oakland, Berkeley — 35 centroids) and additional major metros rolling out next. Coverage is verified per request: a metro that isn't live yet is declined honestly, never fabricated.
 
-**Open tools** run immediately — no account needed. **Gated tools** return `401` on first call. The remote URL and `npx -y @dayplayai/mcp-server` both serve this same 40-tool catalog, and the npm bridge opens Google sign-in for gated tools.
+**Open tools** run immediately — no account needed. **Gated tools** return `401` on first call. Every connection path — the remote URL and the local stdio bridge — serves this same 40-tool catalog, and a host connected through either path opens Google sign-in for gated tools.
 
 ### Discovery (open)
 
@@ -137,7 +160,7 @@ The catalog spans **major metros nationwide**, with the SF Bay Area as the flags
 - `list_saves`, `save_listing`, `unsave_listing`, `list_going`, `mark_going`, `unmark_going`, `get_profile` — saved places, event RSVPs, and the signed-in profile
 - `upvote_listing`, `share_local_favorite`, `share_gem` — community signals
 
-Requires the free-account connect. A host connected to the remote URL opens Google sign-in on the first gated call; the npm stdio package opens a browser for the same connect step. Saved plans appear on the Dayplay Saved tab across web and app.
+Requires the free-account connect. A host connected to the remote URL opens Google sign-in on the first gated call; the stdio bridge opened from a run-from-source checkout opens a browser for the same connect step. Saved plans appear on the Dayplay Saved tab across web and app.
 
 Requires the free-account connect (`https://www.dayplay.io/link`). Saved plans appear on the Dayplay Saved tab across web and app.
 
@@ -182,7 +205,7 @@ No API key is required for the public endpoint. Optional auth tokens, if your de
 MCP client (stdio)  ⇄  bin/dayplay-mcp.js  ⇄  https://api.dayplay.io/mcp (Streamable HTTP)
 ```
 
-The shim lists tools and forwards `tools/call` verbatim to the remote endpoint, so new Dayplay tools appear automatically without an npm update. It is a transport bridge, not a reimplementation — every schema, filter, and verification rule is served by Dayplay itself.
+The shim lists tools and forwards `tools/call` verbatim to the remote endpoint, so new Dayplay tools appear automatically without waiting on a local update. It is a transport bridge, not a reimplementation — every schema, filter, and verification rule is served by Dayplay itself.
 
 Prefer direct HTTP if your client supports it; use the shim for stdio-only clients.
 
@@ -200,14 +223,14 @@ dayplay-mcp/
 │   └── vibe-scout/
 │       └── SKILL.md          # Grok Bot & Cursor Agent prompt instructions
 ├── bin/
-│   └── dayplay-mcp.js        # Executable proxy for `npx -y @dayplayai/mcp-server`
+│   └── dayplay-mcp.js        # Run-from-source stdio proxy
 ├── assets/
 │   └── logo.svg
 ├── test/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # npm metadata (@dayplayai/mcp-server v2.2.2, MIT)
+├── package.json              # Node metadata (v2.2.2, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```
@@ -222,30 +245,7 @@ node bin/dayplay-mcp.js           # run the stdio proxy
 node test/e2e.mjs                 # end-to-end stdio smoke (tools + 3 tool calls)
 ```
 
----
-
-## Releasing (maintainers)
-
-Publishing is fully automated via **npm Trusted Publishing (OIDC)** — no `NPM_TOKEN`, no 2FA prompts. The `.github/workflows/publish.yml` workflow is bound in the package's npm settings to this exact repo + workflow.
-
-```bash
-npm version patch        # or minor / major — bumps package.json, creates the vX.Y.Z tag
-git push --follow-tags
-```
-
-CI then: verifies `package.json` version matches the tag → `npm ci` → smoke test → `npm publish --provenance` (sigstore-signed, OIDC-attested).
-
-**Gotcha:** `--follow-tags` doesn't always push the tag. If no workflow run appears under *Actions* within a minute, finish with:
-
-```bash
-git push origin v1.X.Y
-```
-
-Notes:
-
-- The registry shows *"package is being processed"* for ~3 minutes after publish before the new version resolves — don't panic-verify too early.
-- npm's OIDC flow requires **npm ≥ 11.5.1** in CI; the workflow installs `npm@latest` for this reason.
-- If the workflow ever gains an `environment:` block, the npm Trusted Publisher binding must be updated to the same environment name, or publishes will be rejected.
+Run from a run-from-source checkout (`git clone` + `npm install`).
 
 ---
 
