@@ -1,15 +1,11 @@
 name: dayplay
 displayName: Dayplay — Verified Physical Intelligence for Major Metros Nationwide
 description: >-
-  Verified real-time places, events & walkable itineraries for AI agents across
-  major metros nationwide. The SF Bay Area is the flagship live market, with
-  additional major metros rolling out next. 40-tool catalog: open feeds
-  (today/weekend/live-now, browse, venues, gems) plus gated search, saves &
-  outing planning via free Google connect (browser open now supported through
-  the stdio bridge). Live coverage is verified per request, and the honest
-  zero-results protocol means agents never fabricate venues, events, dates, or
-  hours (Anti-Drift Guarantee). One remote URL.
-version: 2.2.5
+  Verified real-time physical intelligence for AI agents — live across all
+  major US metros, with the SF Bay Area as flagship market. Places, events &
+  walkable itineraries from a verified 40-tool catalog (Anti-Drift Guarantee).
+  Remote endpoint: https://api.dayplay.io/mcp
+version: 2.2.7
 
 license: MIT
 homepage: https://www.dayplay.io

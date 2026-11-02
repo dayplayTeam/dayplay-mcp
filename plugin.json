@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dayplay-local-concierge",
-  "version": "2.2.2",
-  "description": "Verified real-time physical intelligence for AI agents across major metros nationwide: places, events & walkable itineraries. 40-tool catalog: open feeds, browse, venues, gems, plus search, saves & outing planning via free Google connect. SF Bay Area is the flagship live market, with additional major metros rolling out next. Coverage is verified per request under the Anti-Drift Guarantee — no fabricated venues, events, dates, or hours.",
+  "version": "2.2.7",
+  "description": "Verified real-time physical intelligence for AI agents \u2014 live across all major US metros, with the SF Bay Area as flagship market. Places, events & walkable itineraries from a verified 40-tool catalog (Anti-Drift Guarantee).",
   "homepage": "https://www.dayplay.io",
   "repository": "https://github.com/dayplayTeam/dayplay-mcp",
   "logo": "assets/logo.svg",
@@ -29,7 +29,7 @@
   ],
   "author": {
     "name": "Dayplay Team",
-    "email": "hello@dayplay.io",
+    "email": "info@dayplay.io",
     "url": "https://www.dayplay.io"
   },
   "mcp": {

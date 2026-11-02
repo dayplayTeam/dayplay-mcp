@@ -1,8 +1,8 @@
 # Dayplay MCP — Verified Real-Time Physical Intelligence for Major Metros Nationwide
 
-**Dayplay MCP** · v2.2.2 · MIT
+**Dayplay MCP** · v2.2.7 · MIT
 
-Dayplay gives AI agents verified real-time physical intelligence — places, events, and walkable itineraries — across **major metros nationwide**. The **SF Bay Area is our flagship live market**, with **additional major metros rolling out next**.
+Dayplay gives AI agents verified real-time physical intelligence — places, events, and walkable itineraries — live across all **major US metros**, with the **SF Bay Area as flagship market**.
 
 [![Run on Apify](https://img.shields.io/badge/Apify_Store-Dayplay%20Actor-orange?logo=apify)](https://apify.com/dayplay/dayplay-local-intelligence)
 
@@ -12,9 +12,9 @@ Dayplay gives AI agents verified real-time physical intelligence — places, eve
 
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/dayplayteam/dayplay-mcp)
 
-A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge across **major metros nationwide** — curated places, verified real-time events, and neighborhood binding that eliminates cross-metro and cross-bay drift. The **SF Bay Area is the flagship live market**, with **additional major metros rolling out next**.
+A zero-configuration MCP server that gives any AI agent a *locally grounded* concierge — live across all **major US metros**, with the **SF Bay Area as flagship market** — curated places, verified real-time events, and neighborhood binding that eliminates cross-metro and cross-bay drift (Anti-Drift Guarantee).
 
-> 🔒 **Coverage: nationwide posture, verified per request.** Dayplay covers **major metros nationwide**, with the **SF Bay Area as the flagship live market** (San Francisco, Oakland, and Berkeley — 35 neighborhood centroids) and **additional major metros rolling out next**. Live inventory is **not** uniform across every metro yet, so the rule is simple: **call the coverage tools first and trust what they return.** If a location comes back as not-yet-live or out of market, the agent must say so plainly — *"Dayplay doesn't have live coverage for \<location\> yet"* — and must **not** fabricate venues, events, dates, hours, or neighborhoods for it. Zero results for a covered query are reported honestly, never filled with invented places. This per-request check is what keeps the nationwide posture truthful.
+> 🔒 **Coverage: verified real-time physical intelligence.** Dayplay is live across all **major US metros**, with the **SF Bay Area as flagship market** (San Francisco, Oakland, and Berkeley — 35 neighborhood centroids). Live inventory is **not** uniform across every metro yet, so the rule is simple: **call the coverage tools first and trust what they return.** If a location comes back as not-yet-live or out of market, the agent must say so plainly — *"Dayplay doesn't have live coverage for \<location\> yet"* — and must **not** fabricate venues, events, dates, hours, or neighborhoods for it. Zero results for a covered query are reported honestly, never filled with invented places. This per-request check is what keeps the nationwide posture truthful.
 
 **Remote endpoint:** `https://api.dayplay.io/mcp` (Streamable HTTP / MCP)
 
@@ -127,7 +127,7 @@ Run it from a [run-from-source](#option-b--run-from-source-local-stdio-bridge-fo
 
 ## Tools
 
-The catalog spans **major metros nationwide**, with the SF Bay Area as the flagship live market (San Francisco, Oakland, Berkeley — 35 centroids) and additional major metros rolling out next. Coverage is verified per request: a metro that isn't live yet is declined honestly, never fabricated.
+The catalog spans all **major US metros**, with the SF Bay Area as flagship market (San Francisco, Oakland, Berkeley — 35 centroids). Live coverage is verified per request under the Anti-Drift Guarantee: zero fabricated places, events, or hours.
 
 **Open tools** run immediately — no account needed. **Gated tools** return `401` on first call. Every connection path — the remote URL and the local stdio bridge — serves this same 40-tool catalog, and a host connected through either path opens Google sign-in for gated tools.
 
@@ -174,7 +174,7 @@ The original five names are part of the 40-tool catalog: `get_neighborhoods`, `g
 
 Most local AI answers fail the same way: a "Mission" recommendation lands in Oakland, a "Berkeley" event is actually in San Jose, and a walking itinerary silently requires a bridge crossing.
 
-**Scope:** major metros nationwide, with the SF Bay Area as the flagship live market and additional major metros rolling out next. Live coverage is verified per request — the guarantee is that Dayplay never answers for a place it hasn't verified, not that every metro is live on day one.
+**Scope:** live across all major US metros, with the SF Bay Area as flagship market. Live coverage is verified per request under the Anti-Drift Guarantee.
 
 **Dayplay receipts:**
 
@@ -230,7 +230,7 @@ dayplay-mcp/
 │   └── e2e.mjs
 ├── smithery.yaml             # Smithery.ai registry manifest
 ├── plugin.json               # Agent Plugins standard manifest
-├── package.json              # Node metadata (v2.2.2, MIT)
+├── package.json              # Node metadata (v2.2.7, MIT)
 ├── README.md                 # This file
 └── LICENSE                   # MIT (Dayplay Team)
 ```
