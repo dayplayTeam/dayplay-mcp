@@ -1,6 +1,6 @@
 ---
 name: vibe-scout
-description: Plan a night out, weekend, or date night in a major metro with verified real-time events and venues. Use when a user asks what to do in a major metro the tool catalog covers - where to eat or drink tonight, live music, or a walkable itinerary by neighborhood. Dayplay covers major metros nationwide, with the SF Bay Area as the flagship live market and additional major metros rolling out; verify coverage with the tools before answering.
+description: Plan a night out, weekend, or date night in a major metro with verified real-time events and venues. Use when a user asks what to do in a major metro the tool catalog covers - where to eat or drink tonight, live music, or a walkable itinerary by neighborhood. Dayplay is live across all major US metros, with the SF Bay Area as flagship market; verify coverage with the tools before answering.
 ---
 
 # Vibe Scout — Dayplay Local Intelligence
@@ -9,7 +9,7 @@ Ground every local recommendation in live Dayplay data. Never invent venues or h
 
 ## Geographic scope — VERIFY PER REQUEST
 
-Dayplay provides **verified real-time physical intelligence for major metros nationwide**. The **SF Bay Area is the flagship live market** (San Francisco, Oakland, and Berkeley — 35 neighborhood centroids), and **additional major metros are rolling out next**.
+Dayplay provides **verified real-time physical intelligence — live across all major US metros**, with the **SF Bay Area as flagship market** (San Francisco, Oakland, and Berkeley — 35 neighborhood centroids).
 
 Live inventory is not yet uniform across every metro, so scope is a **runtime fact, not an assumption**:
 
